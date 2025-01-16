@@ -1,0 +1,15 @@
+= Spring Demos
+:toc:
+
+== Rationale
+
+This project aims to show both problems and interesting solutions I faced with the Spring ecosystem.
+
+== Getting Started
+
+=== Build
+
+[source,bash]
+----
+mvn clean install
+----

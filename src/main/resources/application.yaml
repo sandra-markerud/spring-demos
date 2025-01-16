@@ -1,0 +1,14 @@
+server:
+  port: 9000
+  ssl:
+    enabled: false
+
+management:
+  server:
+    port: 9010
+    ssl:
+      enabled: false
+
+spring:
+  application:
+    name: spring-demos
