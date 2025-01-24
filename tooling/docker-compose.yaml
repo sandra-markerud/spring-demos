@@ -1,0 +1,13 @@
+services:
+
+  mockserver:
+    image: mockserver/mockserver:5.15.0
+    volumes:
+      - ./mockserver:/config
+    ports:
+      - "9030:1080"
+
+  zipkin:
+    image: openzipkin/zipkin-slim:3.4.2
+    ports:
+      - "9040:9411"

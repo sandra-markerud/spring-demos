@@ -1,3 +1,6 @@
+BACKEND: http://localhost:9030
+ZIPKIN: http://localhost:9040/api/v2/spans
+
 server:
   port: 9000
   ssl:
@@ -8,7 +11,47 @@ management:
     port: 9010
     ssl:
       enabled: false
+  endpoints:
+    web:
+      exposure:
+        include: info,health,metrics,prometheus,loggers,env,gateway,beans
+  endpoint:
+    health:
+      show-details: never
+      probes:
+        enabled: true
+      access: unrestricted
+    gateway:
+      access: unrestricted
+  metrics:
+    tags:
+      application: ${spring.application.name}
+  tracing:
+    enabled: true
+    sampling:
+      probability: 0.5
+    propagation:
+      type: w3c,b3_multi
+  zipkin:
+    tracing:
+      endpoint: ${ZIPKIN}
 
 spring:
   application:
     name: spring-demos
+  cloud:
+    gateway:
+      routes:
+        - id: catch_all
+          predicates:
+            - Path=/**
+          uri: ${BACKEND}
+
+logbook:
+  filter:
+    enabled: true
+  format:
+    style: http
+  predicate:
+    exclude:
+      - path: /anonymous

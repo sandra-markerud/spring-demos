@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <property name="LOGS" value="./logs" />
+
+    <appender name="Console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>
+                %d{dd-MM-yyyy HH:mm:ss.SSS} %magenta([%thread]) %green([T:%X{traceId:-},S:%X{spanId:-}]) %highlight(%-5level) %logger{36} - %msg%n
+            </pattern>
+        </encoder>
+    </appender>
+
+    <!-- LOG everything at INFO level -->
+    <root level="info">
+        <appender-ref ref="Console" />
+    </root>
+
+    <logger name="de.markerud" level="INFO"/>
+    <logger name="org.zalando.logbook.Logbook" level="TRACE"/>
+    <logger name="reactor.netty.http.server.AccessLog" level="INFO"/>
+
+</configuration>

@@ -1,0 +1,6 @@
+### This request should not appear in either access-log or zalando logbook logs
+GET http://localhost:9000/anonymous
+
+### This request should both appear in access log and zalando logbook logs
+GET http://localhost:9000/something
+foo-name: foo-value

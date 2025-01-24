@@ -13,3 +13,28 @@ This project aims to show both problems and interesting solutions I faced with t
 ----
 mvn clean install
 ----
+
+
+=== Running the application locally
+
+To locally run the application, use the following command:
+
+[source,bash]
+----
+mvn spring-boot:run
+----
+
+The application starts on port 9000, the actuator endpoints are available under port 9010.
+
+For local tests, a mockserver (simulating a backend-service) and a zipkin server can be started with the provided docker-compose file.
+
+[source,bash]
+----
+docker-compose -f ./tooling/docker-compose.yaml up
+----
+
+The mockserver can be reached via http://localhost:9030 and exposes a dashboard to monitor all requests is available via http://localhost:9030/mockserver/dashboard[Mockserver Dashboard].
+
+The zipkin server can be reached via http://localhost:9040/zipkin.
+
+Some example requests are available link:./tooling/requests.http[here].
