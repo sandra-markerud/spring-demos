@@ -35,6 +35,8 @@ management:
   zipkin:
     tracing:
       endpoint: ${ZIPKIN}
+      export:
+        enabled: true
 
 spring:
   application:

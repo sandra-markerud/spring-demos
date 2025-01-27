@@ -15,6 +15,7 @@
         <kotlin.version>2.1.0</kotlin.version>
         <spring-boot.version>3.4.2</spring-boot.version>
         <spring-cloud.version>2024.0.0</spring-cloud.version>
+        <zipkin-reporter.version>3.4.3</zipkin-reporter.version>
         <logbook.version>3.10.0</logbook.version>
         <mockserver.version>5.15.0</mockserver.version>
     </properties>
@@ -73,6 +74,11 @@
         <dependency>
             <groupId>io.micrometer</groupId>
             <artifactId>micrometer-tracing-bridge-brave</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.zipkin.reporter2</groupId>
+            <artifactId>zipkin-reporter-brave</artifactId>
+            <version>${zipkin-reporter.version}</version>
         </dependency>
         <dependency>
             <groupId>org.zalando</groupId>
